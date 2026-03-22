@@ -1,0 +1,1058 @@
+﻿﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ABX Калининград | Надёжные грузоперевозки</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f9ff;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            /* ЦВЕТНОЙ КУРСОР-ГРУЗОВИК (встроенный SVG) */
+            cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"%3E%3Crect width="32" height="32" fill="none" /%3E%3C!-- Кузов грузовика --%3E%3Crect x="6" y="12" width="14" height="8" fill="%233B82F6" rx="1" /%3E%3C!-- Кабина --%3E%3Crect x="4" y="8" width="8" height="8" fill="%231E3A8A" rx="1" /%3E%3C!-- Окно кабины --%3E%3Crect x="5" y="9" width="6" height="3" fill="%2386B3FF" rx="0.5" /%3E%3C!-- Фары --%3E%3Ccircle cx="5" cy="15" r="1" fill="%23FFD966" /%3E%3Ccircle cx="10" cy="15" r="1" fill="%23FFD966" /%3E%3C!-- Колеса (задние) --%3E%3Ccircle cx="12" cy="20" r="2" fill="%23222" /%3E%3Ccircle cx="12" cy="20" r="1" fill="%23555" /%3E%3C!-- Колеса передние --%3E%3Ccircle cx="20" cy="20" r="2" fill="%23222" /%3E%3Ccircle cx="20" cy="20" r="1" fill="%23555" /%3E%3C!-- Колесо кабины --%3E%3Ccircle cx="8" cy="20" r="2" fill="%23222" /%3E%3Ccircle cx="8" cy="20" r="1" fill="%23555" /%3E%3C!-- Тент / груз --%3E%3Crect x="14" y="9" width="12" height="5" fill="%23DC2626" rx="0.5" /%3E%3C!-- Детали кузова --%3E%3Cline x1="14" y1="12" x2="25" y2="12" stroke="%23FFFFFF" stroke-width="0.5" /%3E%3C/svg%3E') 0 0, auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Светлая цветовая схема */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            --accent: #0f172a;
+            --light-bg: #ffffff;
+            --card-bg: #ffffff;
+            --border-light: #e2e8f0;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+        }
+
+        /* Шапка */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+            .logo i {
+                font-size: 1.8rem;
+                color: var(--primary);
+            }
+
+            .logo span {
+                color: var(--text-dark);
+            }
+
+                .logo span span {
+                    color: var(--primary);
+                }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--text-muted);
+                font-weight: 600;
+                transition: color 0.2s;
+                font-size: 0.95rem;
+            }
+
+                .nav-links a:hover {
+                    color: var(--primary);
+                }
+
+        .burger {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Мобильное меню */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 280px;
+            height: 100vh;
+            background: white;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 24px 24px;
+            transition: right 0.3s ease;
+            box-shadow: -2px 0 15px rgba(0,0,0,0.1);
+            border-left: 3px solid var(--primary);
+        }
+
+            .mobile-nav.active {
+                right: 0;
+            }
+
+            .mobile-nav ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .mobile-nav a {
+                color: var(--text-dark);
+                text-decoration: none;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 150;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+        }
+
+            .menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+        /* Hero секция */
+        .hero {
+            padding: 60px 0 70px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1.2;
+        }
+
+            .hero-text h1 {
+                font-size: clamp(2rem, 5vw, 3.2rem);
+                font-weight: 800;
+                color: var(--text-dark);
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .hero-text .tagline {
+                font-size: 1.2rem;
+                font-weight: 500;
+                border-left: 4px solid var(--primary);
+                padding-left: 20px;
+                color: var(--text-muted);
+                margin-bottom: 30px;
+            }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        /* Калькулятор */
+        .calculator-card {
+            flex: 1;
+            background: var(--light-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 28px 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+            .calculator-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: var(--text-dark);
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 600;
+                color: var(--text-muted);
+                font-size: 0.85rem;
+            }
+
+            .form-group input, .form-group select {
+                width: 100%;
+                padding: 12px 14px;
+                background: #f8fafc;
+                border: 1px solid var(--border-light);
+                border-radius: 12px;
+                color: var(--text-dark);
+                font-size: 1rem;
+                font-family: 'Inter', sans-serif;
+                transition: 0.2s;
+            }
+
+                .form-group input:focus, .form-group select:focus {
+                    outline: none;
+                    border-color: var(--primary);
+                    box-shadow: 0 0 0 2px rgba(37,99,235,0.1);
+                }
+
+        .btn-calc, .contact-btn {
+            background: var(--primary);
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            margin-top: 8px;
+        }
+
+            .btn-calc:hover, .contact-btn:hover {
+                background: var(--primary-dark);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 10px rgba(37,99,235,0.2);
+            }
+
+        .price-result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 40px;
+            color: var(--text-dark);
+        }
+
+        /* Таймер */
+        .timer-block {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-light);
+        }
+
+        .timer-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .timer {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: monospace;
+        }
+
+        /* Секции */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        /* Карточки услуг */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--light-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 32px 20px;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+            .service-card i {
+                font-size: 2.5rem;
+                color: var(--primary);
+                margin-bottom: 20px;
+            }
+
+            .service-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+                color: var(--text-dark);
+            }
+
+            .service-card p {
+                color: var(--text-muted);
+            }
+
+            .service-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                border-color: var(--primary-light);
+            }
+
+        /* Преимущества */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .advantage-item {
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 24px 15px;
+            border-bottom: 3px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .advantage-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* Тарифы */
+        .tariff-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .tariff-card {
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+
+            .tariff-card i {
+                font-size: 2.5rem;
+                color: var(--primary);
+            }
+
+            .tariff-card h4 {
+                font-size: 1.5rem;
+                margin-bottom: 12px;
+                color: var(--text-dark);
+            }
+
+        .price-tag {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        /* Статистика */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0 0;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 40px;
+            border: 1px solid var(--border-light);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Карта + контакты */
+        .map-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .map-frame {
+            flex: 1.4;
+            min-height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+            .map-frame iframe {
+                width: 100%;
+                height: 100%;
+                min-height: 300px;
+                border: 0;
+            }
+
+        .contacts-info {
+            flex: 1;
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 1px solid var(--border-light);
+        }
+
+        .contact-btn.outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+            .contact-btn.outline:hover {
+                background: var(--primary);
+                color: white;
+                transform: translateY(-1px);
+            }
+
+        /* Плавающая кнопка */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 14px 24px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .floating-btn:hover {
+                background: var(--primary-dark);
+                transform: scale(1.02);
+                box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+            }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .modal.active {
+                display: flex;
+            }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 400px;
+            width: 90%;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            background: #f1f5f9;
+            color: var(--text-muted);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+            .social-icons a {
+                color: var(--text-muted);
+                transition: 0.2s;
+                font-size: 1.5rem;
+            }
+
+                .social-icons a:hover {
+                    color: var(--primary);
+                }
+
+        /* Анимации */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+            .fade-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 40px 0 50px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .services-grid, .tariff-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .map-contacts {
+                flex-direction: column;
+            }
+
+            .map-frame {
+                min-height: 250px;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .floating-btn {
+                padding: 10px 18px;
+                font-size: 0.85rem;
+            }
+
+            .timer {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .advantage-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <i class="fas fa-truck-ramp-box"></i>
+                <span>ABX<span>Калининград</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#advantages">Преимущества</a></li>
+                <li><a href="#tariffs">Авто</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="burger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="close-menu">&times;</div>
+        <ul>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#advantages">Преимущества</a></li>
+            <li><a href="#tariffs">Авто</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <main>
+        <div class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">🚛 Надёжные перевозки</div>
+                    <h1>Грузоперевозки по Калининграду и области</h1>
+                    <div class="tagline">Тариф: 130 руб/км + фиксированная погрузка/разгрузка. Честный расчёт без скрытых доплат.</div>
+                    <button class="contact-btn outline" id="heroOrderBtn" style="width:auto; padding:12px 28px; margin-top:20px;"><i class="fas fa-phone-alt"></i> Заказать звонок</button>
+                </div>
+                <div class="calculator-card">
+                    <h3><i class="fas fa-calculator"></i> Калькулятор стоимости</h3>
+                    <div class="timer-block">
+                        <div class="timer-title">⏱ Скидка 5% при заказе через</div>
+                        <div class="timer" id="countdown">23:59:59</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Расстояние (км) *</label>
+                        <input type="number" id="distance" placeholder="Введите расстояние в км" value="100" step="1" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Дополнительные часы (сверх первого) — 2000 ₽/час</label>
+                        <input type="number" id="extraHours" placeholder="0" value="0" step="1" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Тип загрузки (фиксированная стоимость включена)</label>
+                        <select id="loadingType">
+                            <option value="standard">Стандартная погрузка+разгрузка (+4000 ₽)</option>
+                        </select>
+                    </div>
+                    <button class="btn-calc" id="calcBtn">Рассчитать →</button>
+                    <div class="price-result" id="priceDisplay">Примерная стоимость: — ₽</div>
+                </div>
+            </div>
+        </div>
+
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title fade-up">Наши услуги</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-up"><i class="fas fa-home"></i><h3>Квартирные переезды</h3><p>Межгород с упаковкой и страховкой</p></div>
+                    <div class="service-card fade-up"><i class="fas fa-boxes"></i><h3>Коммерческие грузы</h3><p>Для бизнеса по всей области</p></div>
+                    <div class="service-card fade-up"><i class="fas fa-truck-loading"></i><h3>Сборные грузы</h3><p>Экономия до 30%</p></div>
+                    <div class="service-card fade-up"><i class="fas fa-envelope-open-text"></i><h3>Срочная доставка</h3><p>Документы, посылки, экспресс</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advantages">
+            <div class="container">
+                <h2 class="section-title fade-up">Почему выбирают нас</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-item fade-up"><div class="advantage-number">130 ₽/км</div><p>Прозрачный тариф</p></div>
+                    <div class="advantage-item fade-up"><div class="advantage-number">Фикс</div><p>Прайс без скрытых доплат</p></div>
+                    <div class="advantage-item fade-up"><div class="advantage-number">24/7</div><p>Онлайн-трекинг</p></div>
+                    <div class="advantage-item fade-up"><div class="advantage-number">100%</div><p>Страховка груза</p></div>
+                </div>
+                <div class="stats-row">
+                    <div class="stat-item"><div class="stat-number">1500+</div><div>довольных клиентов</div></div>
+                    <div class="stat-item"><div class="stat-number">4.9</div><div>рейтинг на картах</div></div>
+                    <div class="stat-item"><div class="stat-number">99%</div><div>соблюдение сроков</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tariffs">
+            <div class="container">
+                <h2 class="section-title fade-up">Наш автопарк</h2>
+                <div id="tariffContainer" class="tariff-cards"></div>
+            </div>
+        </section>
+
+        <section id="contacts">
+            <div class="container">
+                <h2 class="section-title fade-up">Мы на карте</h2>
+                <div class="map-contacts">
+                    <div class="map-frame fade-up">
+                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=20.3981%2C54.6703%2C20.6249%2C54.7427&layer=mapnik&marker=54.7065%2C20.5115" style="border:0; width:100%; height:100%;" allowfullscreen></iframe>
+                    </div>
+                    <div class="contacts-info fade-up">
+                        <h3><i class="fas fa-phone-alt"></i> Связь с диспетчером</h3>
+                        <a href="tel:+79062396724" style="text-decoration:none;"><button class="contact-btn"><i class="fas fa-phone"></i> Позвонить: +7 (906) 239-67-24</button></a>
+                        <button class="contact-btn outline" id="callOrderBtn"><i class="fas fa-calendar-check"></i> Заказать звонок</button>
+                        <p><i class="fas fa-map-marker-alt"></i> г. Калининград, ул. Елизаветинская 3, офис 107</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://t.me/kaliningradperevoz" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
+                <a href="https://vk.com/club234329984" target="_blank" rel="noopener noreferrer"><i class="fab fa-vk"></i></a>
+            </div>
+            <p>© 2026 ABX Калининград — Надёжные грузоперевозки. Честность и пунктуальность.</p>
+        </div>
+    </footer>
+
+    <!-- Плавающая кнопка -->
+    <button class="floating-btn" id="floatingOrderBtn"><i class="fas fa-headset"></i> Заказать звонок</button>
+
+    <div id="modalRequest" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 style="margin-bottom: 20px;">Оставить заявку</h3>
+            <form id="callbackForm">
+                <div class="form-group">
+                    <label>Ваше имя</label>
+                    <input type="text" id="clientName" required placeholder="Алексей">
+                </div>
+                <div class="form-group">
+                    <label>Телефон</label>
+                    <input type="tel" id="clientPhone" required placeholder="+7 999 123-45-67">
+                </div>
+                <button type="submit" class="btn-calc" style="margin-top: 10px;">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    // ---------- TELEGRAM (ИСПРАВЛЕННАЯ ВЕРСИЯ) ----------
+    const TELEGRAM_TOKEN = '8640516039:AAF2VD7Mmm_-rbrgS0QVmPSBIQaWlHOlLp4';
+    // ⚠️ ВАЖНО: замените на реальный chat_id, полученный из getUpdates
+    const TELEGRAM_CHAT_ID = '-5231858173'; 
+
+    // Функция отправки сообщения в Telegram
+    async function sendToTelegram(messageText) {
+        const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+        console.log('📤 Отправка запроса к Telegram...');
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: messageText,
+                    parse_mode: 'HTML'
+                })
+            });
+
+            const data = await response.json();
+            console.log('📨 Ответ Telegram:', data);
+
+            if (data.ok) {
+                console.log('✅ Сообщение успешно отправлено');
+                return true;
+            } else {
+                console.error('❌ Ошибка Telegram:', data.description);
+                // Если ошибка "chat not found" — значит chat_id неправильный
+                if (data.description && data.description.includes('chat not found')) {
+                    alert('Ошибка: не удалось найти получателя. Пожалуйста, сообщите администратору.');
+                }
+                return false;
+            }
+        } catch (error) {
+            console.error('❌ Ошибка сети:', error);
+            alert('Ошибка соединения. Проверьте интернет или попробуйте позже.');
+            return false;
+        }
+    }
+
+    // Функция для безопасного отображения HTML
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // ---------- КАЛЬКУЛЯТОР ----------
+    const distanceInput = document.getElementById('distance');
+    const extraHoursInput = document.getElementById('extraHours');
+    const loadingSelect = document.getElementById('loadingType');
+    const calcBtn = document.getElementById('calcBtn');
+    const priceDisplay = document.getElementById('priceDisplay');
+
+    function calculatePrice() {
+        let distance = parseFloat(distanceInput.value);
+        if (isNaN(distance) || distance < 1) distance = 1;
+        let extraHours = parseInt(extraHoursInput.value);
+        if (isNaN(extraHours) || extraHours < 0) extraHours = 0;
+        let loadingCost = loadingSelect.value === 'standard' ? 4000 : 4000;
+        let kmCost = distance * 130;
+        let total = kmCost + loadingCost + (extraHours * 2000);
+        return Math.round(total);
+    }
+
+    function updatePrice() {
+        let price = calculatePrice();
+        priceDisplay.innerHTML = `💰 Итоговая стоимость: ${price.toLocaleString('ru-RU')} ₽`;
+    }
+
+    calcBtn.addEventListener('click', updatePrice);
+    updatePrice();
+
+    // ---------- ТАРИФЫ ----------
+    const cargoTariffs = [
+        { name: "Газель NEXT", price: "от 1000 ₽/час + км", desc: "до 1.5т, тент, межгород", icon: "fa-truck" },
+        { name: "Фургон 5т", price: "от 1800 ₽/час + км", desc: "объем до 40м³, для коммерции", icon: "fa-truck-moving" }
+    ];
+
+    function renderTariffs() {
+        const container = document.getElementById('tariffContainer');
+        container.innerHTML = cargoTariffs.map(t => `
+            <div class="tariff-card fade-up">
+                <i class="fas ${t.icon}" style="font-size: 2.5rem; color:var(--primary);"></i>
+                <h4>${t.name}</h4>
+                <div class="price-tag">${t.price}</div>
+                <p>${t.desc}</p>
+            </div>
+        `).join('');
+        observeFadeElements();
+    }
+    renderTariffs();
+
+    // ---------- ТАЙМЕР (24ч) ----------
+    let timeLeft = 24 * 3600;
+    const timerElement = document.getElementById('countdown');
+    function updateTimer() {
+        if (timeLeft <= 0) {
+            timerElement.innerText = "00:00:00";
+            return;
+        }
+        let hours = Math.floor(timeLeft / 3600);
+        let minutes = Math.floor((timeLeft % 3600) / 60);
+        let seconds = timeLeft % 60;
+        timerElement.innerText = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+        timeLeft--;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // ---------- МОДАЛЬНОЕ ОКНО ----------
+    const modal = document.getElementById('modalRequest');
+    const openModalBtns = [document.getElementById('callOrderBtn'), document.getElementById('heroOrderBtn'), document.getElementById('floatingOrderBtn')];
+    const closeModalSpan = document.querySelector('.close-modal');
+    const callbackForm = document.getElementById('callbackForm');
+
+    function openModalFunc() { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeModalFunc() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+
+    openModalBtns.forEach(btn => btn && btn.addEventListener('click', openModalFunc));
+    closeModalSpan.addEventListener('click', closeModalFunc);
+    window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+
+    function validatePhone(phone) {
+        const digits = phone.replace(/\D/g, '');
+        if (digits.length === 11 && (digits.startsWith('7') || digits.startsWith('8'))) return true;
+        if (digits.length === 10) return true;
+        return false;
+    }
+
+    // ---------- ОБРАБОТЧИК ОТПРАВКИ ФОРМЫ (ИСПРАВЛЕННЫЙ) ----------
+    callbackForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('clientName').value.trim();
+        const phone = document.getElementById('clientPhone').value.trim();
+        const submitBtn = callbackForm.querySelector('button[type="submit"]');
+        
+        if (!name || !phone) {
+            alert('❌ Заполните имя и телефон');
+            return;
+        }
+        
+        if (!validatePhone(phone)) {
+            alert('❌ Введите корректный номер телефона (например, +7 999 123-45-67)');
+            return;
+        }
+        
+        // Блокируем кнопку, чтобы избежать повторной отправки
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправка...';
+        
+        // Формируем красивое сообщение с HTML-разметкой
+        const message = `📦 <b>НОВАЯ ЗАЯВКА НА ЗВОНОК</b>\n\n👤 <b>Имя:</b> ${escapeHtml(name)}\n📱 <b>Телефон:</b> ${escapeHtml(phone)}\n🕐 <b>Время:</b> ${new Date().toLocaleString('ru-RU')}\n\n🚛 <i>ABX Калининград</i>`;
+        
+        const success = await sendToTelegram(message);
+        
+        if (success) {
+            alert(`✅ Спасибо, ${name}! Мы перезвоним по номеру ${phone} в ближайшее время.`);
+            closeModalFunc();
+            callbackForm.reset();
+        } else {
+            alert('❌ Не удалось отправить заявку. Пожалуйста, позвоните нам напрямую или попробуйте позже.\n\nТелефон: +7 (906) 239-67-24');
+        }
+        
+        // Разблокируем кнопку
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Отправить';
+    });
+
+    // ---------- АНИМАЦИЯ ПРИ СКРОЛЛЕ ----------
+    function observeFadeElements() {
+        const fadeElements = document.querySelectorAll('.fade-up:not(.observed)');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        fadeElements.forEach(el => {
+            observer.observe(el);
+            el.classList.add('observed');
+        });
+    }
+    observeFadeElements();
+
+    // ---------- ПЛАВНЫЙ СКРОЛЛ ----------
+    function smoothScroll(targetId) {
+        const target = document.getElementById(targetId);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            smoothScroll(targetId);
+            const mobileNav = document.getElementById('mobileNav');
+            const menuOverlay = document.getElementById('menuOverlay');
+            if (mobileNav) mobileNav.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // ---------- БУРГЕР-МЕНЮ ----------
+    const burger = document.querySelector('.burger');
+    const mobileNav = document.getElementById('mobileNav');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const closeMenuBtn = document.querySelector('.close-menu');
+
+    function openMobileMenu() {
+        mobileNav.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        mobileNav.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    burger?.addEventListener('click', openMobileMenu);
+    closeMenuBtn?.addEventListener('click', closeMobileMenu);
+    menuOverlay?.addEventListener('click', closeMobileMenu);
+    </script>
+</body>
+</html>
